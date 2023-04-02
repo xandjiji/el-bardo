@@ -3,12 +3,20 @@ import { colored, progressBar } from './utils';
 import { Timestamp } from './Timestamp';
 import { ColorKey } from './constants';
 
-export type TrackETAConstructor = { totalTasks?: number; taskName?: string };
+export type TrackETAConstructor = {
+  totalTasks: number;
+  taskName?: string;
+  initialDate?: Date;
+};
 
 export class TrackETA {
-  constructor({ taskName = 'Task', totalTasks = 1 }: TrackETAConstructor) {
+  constructor({
+    taskName = 'Task',
+    totalTasks,
+    initialDate = new Date(),
+  }: TrackETAConstructor) {
     this.taskName = taskName;
-    this.startTimestamp = +new Date();
+    this.startTimestamp = +initialDate;
     this.totalTasks = totalTasks;
 
     this.setText(

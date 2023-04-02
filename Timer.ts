@@ -1,8 +1,10 @@
 import { Timestamp } from './Timestamp';
 
+export type TimerArgs = { startDate?: Date };
+
 export class Timer {
-  constructor() {
-    this.startTimestamp = +new Date();
+  constructor(args?: TimerArgs) {
+    this.startTimestamp = +(args?.startDate ?? new Date());
   }
 
   private startTimestamp = 0;
