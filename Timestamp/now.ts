@@ -1,7 +1,7 @@
-import { coloredText, brackets } from '../utils';
+import { colored } from '../utils';
 import { ColorKey } from '../constants';
 
-const separator = coloredText(':', 'control');
+const separator = colored.text(':', 'control');
 
 export const now = (color: ColorKey = 'reset'): string => {
   const splitTimestamp = new Date()
@@ -12,7 +12,7 @@ export const now = (color: ColorKey = 'reset'): string => {
       second: 'numeric',
     })
     .split(':')
-    .map((time) => coloredText(time, color));
+    .map((time) => colored.text(time, color));
 
-  return brackets(splitTimestamp.join(separator), 'control');
+  return colored.brackets(splitTimestamp.join(separator), 'control');
 };

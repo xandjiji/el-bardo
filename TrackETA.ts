@@ -1,5 +1,5 @@
 import { log, setFooterText } from './index';
-import { coloredText, progressBar, coloredProgress } from './utils';
+import { colored, progressBar } from './utils';
 import { Timestamp } from './Timestamp';
 import { ColorKey } from './constants';
 
@@ -10,7 +10,7 @@ export class TrackETA {
     this.totalTasks = totalTasks;
 
     this.setText(
-      coloredText(
+      colored.text(
         `${this.taskName} is ${this.getReadablePercentage()} completed`,
         'reset',
       ),
@@ -28,7 +28,7 @@ export class TrackETA {
   private percentageCompleted = 0;
 
   private getReadablePercentage = () =>
-    coloredText(`${(this.percentageCompleted * 100).toFixed(2)}%`, 'system');
+    colored.text(`${(this.percentageCompleted * 100).toFixed(2)}%`, 'system');
 
   private setText = (text: string) =>
     setFooterText(`${progressBar(this.percentageCompleted)} ${text}`);
@@ -40,7 +40,7 @@ export class TrackETA {
 
     if (tasksLeft) {
       this.setText(
-        coloredText(
+        colored.text(
           `${
             this.taskName
           } is ${this.getReadablePercentage()} completed. ${Timestamp.ETA(
@@ -64,7 +64,7 @@ export class TrackETA {
   };
 
   public getProgress = (color: ColorKey = 'system'): string =>
-    coloredProgress([this.currentTask, this.totalTasks], color);
+    colored.progress([this.currentTask, this.totalTasks], color);
 
   finish = (): void => {
     log(

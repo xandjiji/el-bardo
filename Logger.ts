@@ -1,9 +1,9 @@
 import { TerminalStream } from './TerminalStream';
 import { Timestamp } from './Timestamp';
-import { coloredText } from './utils';
+import { colored } from './utils';
 import { Broadcaster } from './constants';
 
-const TAB = coloredText(' └> ', 'control');
+const TAB = colored.text(' └> ', 'control');
 
 class Logger {
   private stream = new TerminalStream();

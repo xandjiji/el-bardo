@@ -1,4 +1,4 @@
-import { calcTimeObject, coloredText } from '../utils';
+import { calcTimeObject, colored } from '../utils';
 import { ColorKey } from '../constants';
 
 export const humanReadable = (
@@ -8,15 +8,15 @@ export const humanReadable = (
   const { hours, seconds, minutes } = calcTimeObject(timestamp);
 
   const hoursString = hours
-    ? `${coloredText(hours, color)} ${hours > 1 ? 'hours' : 'hour'}, `
+    ? `${colored.text(hours, color)} ${hours > 1 ? 'hours' : 'hour'}, `
     : '';
   const minutesString = minutes
-    ? `${coloredText(minutes, color)} ${
+    ? `${colored.text(minutes, color)} ${
         minutes > 1 ? 'minutes' : 'mintue'
       } and `
     : '';
   const secondsString = seconds
-    ? `${coloredText(seconds, color)} ${seconds > 1 ? 'seconds' : 'second'}`
+    ? `${colored.text(seconds, color)} ${seconds > 1 ? 'seconds' : 'second'}`
     : '';
 
   return `${hoursString}${minutesString}${secondsString}`;

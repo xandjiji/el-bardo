@@ -1,4 +1,4 @@
-import { calcTimeObject, coloredText } from '../utils';
+import { calcTimeObject, colored } from '../utils';
 import { ColorKey, MILLISECONDS_IN } from '../constants';
 
 const checkHours = (timestamp: number) => timestamp > MILLISECONDS_IN.HOUR;
@@ -9,13 +9,13 @@ export const ETA = (timestamp: number, color: ColorKey = 'neutral'): string => {
   const { hours, minutes, seconds } = calcTimeObject(timestamp);
 
   const hoursString = checkHours(timestamp)
-    ? `${coloredText(hours, color)}h `
+    ? `${colored.text(hours, color)}h `
     : '';
   const minutesString = checkMinutes(timestamp)
-    ? `${coloredText(minutes, color)}m  `
+    ? `${colored.text(minutes, color)}m `
     : '';
   const secondsString = checkSeconds(timestamp)
-    ? `${coloredText(seconds, color)}s`
+    ? `${colored.text(seconds, color)}s`
     : '';
   const leftString = secondsString ? ' left' : '';
 
