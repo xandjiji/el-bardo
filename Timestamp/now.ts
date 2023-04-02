@@ -3,8 +3,8 @@ import { ColorKey } from '../constants';
 
 const separator = colored.text(':', 'control');
 
-export const now = (color: ColorKey = 'reset'): string => {
-  const splitTimestamp = new Date()
+const defaultTimeFormatter = (date: Date, color: ColorKey = 'reset') =>
+  date
     .toLocaleTimeString('en-US', {
       hour12: false,
       hour: 'numeric',
@@ -12,7 +12,12 @@ export const now = (color: ColorKey = 'reset'): string => {
       second: 'numeric',
     })
     .split(':')
-    .map((time) => colored.text(time, color));
+    .map((time) => colored.text(time, color))
+    .join(separator);
 
-  return colored.brackets(splitTimestamp.join(separator), 'control');
-};
+export type TimeFormatter = typeof defaultTimeFormatter;
+
+export const now = (
+  color: ColorKey = 'reset',
+  timeFormatter: TimeFormatter = defaultTimeFormatter,
+): string => colored.brackets(timeFormatter(new Date(), color), 'control');

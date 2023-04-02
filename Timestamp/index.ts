@@ -3,3 +3,4 @@ import { humanReadable } from './humanReadable';
 import { now } from './now';
 
 export const Timestamp = { ETA, humanReadable, now };
+export type { TimeFormatter } from './now';

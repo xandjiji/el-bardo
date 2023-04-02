@@ -1,7 +1,9 @@
 import { bgColors, BGColorKey, colors, ColorKey } from '../constants';
 
-const coloredText = (text: string | number, color: ColorKey): string =>
-  `${colors[color]}${text}${colors.reset}`;
+const coloredText = (
+  text: string | number,
+  color: ColorKey = 'reset',
+): string => `${colors[color]}${text}${colors.reset}`;
 
 const coloredBrackets = (
   text: string | number,

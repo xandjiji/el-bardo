@@ -1,19 +1,24 @@
 import { TerminalStream } from './TerminalStream';
-import { Timestamp } from './Timestamp';
+import { TimeFormatter, Timestamp } from './Timestamp';
 import { colored } from './utils';
 import { Broadcaster } from './constants';
 
 const TAB = colored.text(' └> ', 'control');
 
-class Logger {
+export class Bard {
   private stream = new TerminalStream();
+  private readonly timeFormatter?: TimeFormatter;
+
+  constructor(config?: { timeFormatter?: TimeFormatter }) {
+    this.timeFormatter = config?.timeFormatter;
+  }
 
   public log = (message: string) => {
     this.stream.log(message);
   };
 
   public broadcast: Broadcaster = (text, color) => {
-    const message = `${Timestamp.now(color)} ${text}`;
+    const message = `${Timestamp.now(color, this.timeFormatter)} ${text}`;
     this.log(message);
   };
 
@@ -24,4 +29,4 @@ class Logger {
   public setFooterText = this.stream.setFooterText;
 }
 
-export const logger = new Logger();
+export const bard = new Bard();
