@@ -1,16 +1,9 @@
 import { calcTimeObject, coloredText } from '../utils';
-import {
-  ColorKey,
-  MILLISECONDS_IN_AN_HOUR,
-  MILLISECONDS_IN_A_MINUTE,
-  MILLISECONDS_IN_A_SECOND,
-} from '../types';
+import { ColorKey, MILLISECONDS_IN } from '../constants';
 
-const checkHours = (timestamp: number) => timestamp > MILLISECONDS_IN_AN_HOUR;
-const checkMinutes = (timestamp: number) =>
-  timestamp > MILLISECONDS_IN_A_MINUTE;
-const checkSeconds = (timestamp: number) =>
-  timestamp > MILLISECONDS_IN_A_SECOND;
+const checkHours = (timestamp: number) => timestamp > MILLISECONDS_IN.HOUR;
+const checkMinutes = (timestamp: number) => timestamp > MILLISECONDS_IN.MINUTE;
+const checkSeconds = (timestamp: number) => timestamp > MILLISECONDS_IN.SECOND;
 
 export const ETA = (timestamp: number, color: ColorKey = 'neutral'): string => {
   const { hours, minutes, seconds } = calcTimeObject(timestamp);

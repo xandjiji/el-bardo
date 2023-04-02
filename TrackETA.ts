@@ -1,7 +1,7 @@
 import { log, setFooterText } from './index';
 import { coloredText, progressBar, coloredProgress } from './utils';
 import { Timestamp } from './Timestamp';
-import { ColorKey } from './types';
+import { ColorKey } from './constants';
 
 export class TrackETA {
   constructor(totalTasks: number, taskName = 'Task') {

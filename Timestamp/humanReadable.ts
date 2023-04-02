@@ -1,5 +1,5 @@
 import { calcTimeObject, coloredText } from '../utils';
-import { ColorKey } from '../types';
+import { ColorKey } from '../constants';
 
 export const humanReadable = (
   timestamp: number,

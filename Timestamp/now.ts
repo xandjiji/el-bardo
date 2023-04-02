@@ -1,5 +1,5 @@
 import { coloredText, brackets } from '../utils';
-import { ColorKey } from '../types';
+import { ColorKey } from '../constants';
 
 const separator = coloredText(':', 'control');
 

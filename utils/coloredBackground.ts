@@ -1,4 +1,4 @@
-import { bgColors, BGColorKey } from '../types';
+import { bgColors, BGColorKey } from '../constants';
 
 export const coloredBackground = (
   text: string | number,

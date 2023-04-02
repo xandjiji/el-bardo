@@ -1,20 +1,15 @@
-import {
-  TimeObject,
-  MILLISECONDS_IN_AN_HOUR,
-  MILLISECONDS_IN_A_MINUTE,
-  MILLISECONDS_IN_A_SECOND,
-} from '../types';
+import { TimeObject, MILLISECONDS_IN } from '../constants';
 
 export const calcTimeObject = (timestamp: number): TimeObject => {
   let millisecondsLeft = timestamp;
 
-  const hours = Math.floor(millisecondsLeft / MILLISECONDS_IN_AN_HOUR);
+  const hours = Math.floor(millisecondsLeft / MILLISECONDS_IN.HOUR);
 
-  millisecondsLeft -= hours * MILLISECONDS_IN_AN_HOUR;
-  const minutes = Math.floor(millisecondsLeft / MILLISECONDS_IN_A_MINUTE);
+  millisecondsLeft -= hours * MILLISECONDS_IN.HOUR;
+  const minutes = Math.floor(millisecondsLeft / MILLISECONDS_IN.MINUTE);
 
-  millisecondsLeft -= minutes * MILLISECONDS_IN_A_MINUTE;
-  const seconds = Math.floor(millisecondsLeft / MILLISECONDS_IN_A_SECOND);
+  millisecondsLeft -= minutes * MILLISECONDS_IN.MINUTE;
+  const seconds = Math.floor(millisecondsLeft / MILLISECONDS_IN.SECOND);
 
   return { hours, minutes, seconds };
 };

@@ -1,7 +1,7 @@
 import { TerminalStream } from './TerminalStream';
 import { Timestamp } from './Timestamp';
 import { coloredText } from './utils';
-import { Broadcaster } from './types';
+import { Broadcaster } from './constants';
 
 const TAB = coloredText(' └> ', 'control');
 

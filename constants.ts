@@ -1,6 +1,8 @@
-export const MILLISECONDS_IN_A_SECOND = 1000;
-export const MILLISECONDS_IN_A_MINUTE = MILLISECONDS_IN_A_SECOND * 60;
-export const MILLISECONDS_IN_AN_HOUR = MILLISECONDS_IN_A_MINUTE * 60;
+export const MILLISECONDS_IN = {
+  SECOND: 1000,
+  MINUTE: 1000 * 60,
+  HOUR: 1000 * 60 * 60,
+};
 
 export const colors = {
   reset: '\x1b[0m', // white
