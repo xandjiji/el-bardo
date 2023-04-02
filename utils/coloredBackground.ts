@@ -1,6 +1,6 @@
-import { bgColors, BGColorKey } from '../types'
+import { bgColors, BGColorKey } from '../types';
 
 export const coloredBackground = (
   text: string | number,
   color: BGColorKey,
-): string => `${bgColors[color]}${text}${bgColors.reset}`
+): string => `${bgColors[color]}${text}${bgColors.reset}`;
