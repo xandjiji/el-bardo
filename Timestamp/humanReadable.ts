@@ -1,4 +1,4 @@
-import { calcTimeObject, coloredText, plural } from '../utils';
+import { calcTimeObject, coloredText } from '../utils';
 import { ColorKey } from '../types';
 
 export const humanReadable = (
@@ -8,13 +8,15 @@ export const humanReadable = (
   const { hours, seconds, minutes } = calcTimeObject(timestamp);
 
   const hoursString = hours
-    ? `${coloredText(hours, color)} hour${plural(hours)}, `
+    ? `${coloredText(hours, color)} ${hours > 1 ? 'hours' : 'hour'}, `
     : '';
   const minutesString = minutes
-    ? `${coloredText(minutes, color)} minute${plural(minutes)} and `
+    ? `${coloredText(minutes, color)} ${
+        minutes > 1 ? 'minutes' : 'mintue'
+      } and `
     : '';
   const secondsString = seconds
-    ? `${coloredText(seconds, color)} second${plural(seconds)}`
+    ? `${coloredText(seconds, color)} ${seconds > 1 ? 'seconds' : 'second'}`
     : '';
 
   return `${hoursString}${minutesString}${secondsString}`;
